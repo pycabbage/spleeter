@@ -10,17 +10,18 @@ jobs:
       matrix:
         python-version: ['3.8', '3.9', '3.10', '3.11']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         env:
           model-release: 1
         id: spleeter-model-cache
         with:
-          path: ${{ env.GITHUB_WORKSPACE }}/pretrained_models
+          # path: ${{ env.GITHUB_WORKSPACE }}/pretrained_models
+          path: ${{ github.workspace }}/pretrained_models
           key: models-${{ env.model-release }}
           restore-keys: |
             models-${{ env.model-release }}
@@ -33,7 +34,7 @@ jobs:
           poetry config virtualenvs.in-project false
           poetry config virtualenvs.path ~/.virtualenvs
       - name: Cache Poetry virtualenv
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         id: cache
         with:
           path: ~/.virtualenvs
