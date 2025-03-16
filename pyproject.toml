@@ -5,8 +5,8 @@ description = "The Deezer source separation library with pretrained models based
 authors = ["Deezer Research <spleeter@deezer.com>"]
 license = "MIT License"
 readme = "README.md"
-repository = "https://github.com/deezer/spleeter"
-homepage = "https://github.com/deezer/spleeter"
+repository = "https://github.com/pycabbage/spleeter"
+homepage = "https://github.com/pycabbage/spleeter"
 classifiers = [
     "Environment :: Console",
     "Environment :: MacOS X",
